@@ -1,0 +1,4 @@
+paths:
+  logs: Log
+  logs_file_name: logs
+  
