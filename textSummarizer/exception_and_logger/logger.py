@@ -54,6 +54,7 @@ class Logger:
 
         # remove exiting handler when job finished as if you call method seconde time it will write it no of time it was previously called or duplicate msg
         self.my_logger.removeHandler(self.file_handler)
+        self.my_logger.removeHandler(self.console_handler)
 
     @ensure_annotations
     def write_exception(self, exception, log_level="ERROR"):
@@ -86,6 +87,7 @@ class Logger:
         msg = (f"Exception occurred {exception} \ndetails are below:\nexc_type {exc_type}, exc_obj {exc_obj}, line_no {line_no}, file_name {filename}")
         self.my_logger.error(msg)
         self.my_logger.removeHandler(self.file_handler)
+        self.my_logger.removeHandler(self.console_handler)
 
 
 

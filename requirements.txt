@@ -1,4 +1,5 @@
 mlflow
+py7zr
 transformers
 transformers[sentencepiece]
 datasets

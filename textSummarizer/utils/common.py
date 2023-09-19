@@ -50,3 +50,8 @@ def get_unique_name()->str:
     now = datetime.now()
     name = now.strftime("%d-%m-%Y")
     return name
+
+@ensure_annotations
+def get_size(path: Path):
+    size_in_kb = round(os.path.getsize(path)/1024)
+    return size_in_kb
