@@ -23,13 +23,13 @@ class Data_validation:
 
     def split_name_checks(self):
         data = self.load_data()
-        split_name = self.data_validation_config.columns_name_check
-        print(s)
+        split_name = self.data_validation_config.data_split_name
+        print(split_name)
 
 
 c = Configuration()
 ob = Data_validation(c.get_data_validation_config())
-data = ob.load_data()
+data = ob.split_name_checks()
 print(data)
 
 
