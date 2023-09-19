@@ -23,7 +23,8 @@ class Data_validation:
 
     def split_name_checks(self):
         data = self.load_data()
-        
+        split_name = self.data_validation_config.columns_name_check
+        print(s)
 
 
 c = Configuration()
