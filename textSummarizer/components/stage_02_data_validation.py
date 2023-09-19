@@ -22,8 +22,8 @@ class Data_validation:
 
 
     def split_name_checks(self):
-        data_full_path = self.data_validation_config.dataset_full_path
-        data = load_from_disk(data_full_path)
+        data = self.load_data()
+        
 
 
 c = Configuration()
