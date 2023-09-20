@@ -10,7 +10,7 @@ paths:
 
 data_validation_config:
   data_split_name:
-    - train
+    - trains
     - test
     - validation
   column_name_check:
