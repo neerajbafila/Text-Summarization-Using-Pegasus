@@ -131,3 +131,7 @@ dmypy.json
 Log/*
 researchEnv/*
 
+
+artifacts/transformed_data/*
+artifacts/tokenizer/models--google--pegasus-cnn_dailymail/*
+data/unzip_data/

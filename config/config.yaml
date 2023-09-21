@@ -1,6 +1,7 @@
 paths:
   logs: Log
   logs_file_name: logs
+  # artifacts: artifacts
   root_data_dir: data
   source_url: https://github.com/entbappy/Branching-tutorial/raw/master/summarizer-data.zip
   zip_data_path: zip_data
@@ -10,7 +11,7 @@ paths:
 
 data_validation_config:
   data_split_name:
-    - trains
+    - train
     - test
     - validation
   column_name_check:
@@ -21,3 +22,9 @@ data_validation_config:
     - string
     - string
     - string
+
+data_prepration:
+  root_dir: artifacts
+  transformed_data_dir: transformed_data 
+  tokenizer_name: "google/pegasus-cnn_dailymail"
+  tokenizer_path: tokenizer

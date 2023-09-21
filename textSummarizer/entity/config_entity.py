@@ -14,3 +14,11 @@ class DataIngestionConfig:
 
 DataValidationConfig = namedtuple("DataValidationConfig", ["dataset_full_path", "data_split_name", 
                                                            "columns_name_check", "data_type_check"])
+
+@dataclass(frozen=True)
+class DataPreprationConfig:
+    unzip_data_path: Path
+    root_dir: Path
+    transformed_data_dir: Path
+    tokenizer_name: Path
+    tokenizer_path: Path
