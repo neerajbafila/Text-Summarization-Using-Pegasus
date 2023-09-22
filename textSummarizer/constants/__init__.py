@@ -1,6 +1,7 @@
 from pathlib import Path
 
 CONFIG_FILE_PATH = Path("config/config.yaml")
+PARAMS_FILE_PATH = Path("config/params.yaml")
 
 PATHS_KEY = "paths"
 LOGS_FOLDER_NAME_KEY = "logs"
@@ -22,3 +23,6 @@ ROOT_DIR_KEY = "root_dir"
 TRANSFORMED_DATA_DIR_KEY = "transformed_data_dir"
 TOKENIZER_NAME_KEY = "tokenizer_name"
 TOKENIZER_PATH_KEY = "tokenizer_path"
+
+TRAININGARGUMENTS_KEY = "TrainingArguments"
+NUM_TRAIN_EPOCHS_KEY = "num_train_epochs"
