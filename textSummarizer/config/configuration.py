@@ -1,6 +1,6 @@
 from textSummarizer.constants import *
 from textSummarizer import Logger
-from textSummarizer import DataIngestionConfig, DataValidationConfig, DataPreprationConfig
+from textSummarizer import DataIngestionConfig, DataValidationConfig, DataPreprationConfig, ModelTrainingConfig
 from textSummarizer import read_yaml, create_directories
 from ensure import ensure_annotations
 import os, sys
@@ -14,6 +14,7 @@ class Configuration:
         try:
             self.my_logger.write_log(f"Reading configuration file")
             self.config = read_yaml(CONFIG_FILE_PATH)
+            self.params = read_yaml(PARAMS_FILE_PATH)
         except Exception as e:
             self.my_logger.write_exception(e)
             raise Exception(e, sys.exc_info())
@@ -64,12 +65,42 @@ class Configuration:
                                                       transformed_data_dir=transformed_data_dir, tokenizer_path=tokenizer_path)
         return data_prepration_config
 
+    @ensure_annotations
+    def get_model_trainer_config(self)->ModelTrainingConfig:
+        try:
 
-if __name__ == '__main__':
+            model_name = self.config[PATHS_KEY][MODEL_NAME_KEY]
+            model_path = self.config[PATHS_KEY][MODEL_PATH_KEY]
+            root_dir = self.config[DATA_PREPRATION_KEY][ROOT_DIR_KEY]
+            trained_model_path = self.config[PATHS_KEY][TRAINED_MODEL_PATH_KEY]
+            model_full_path = Path(os.path.join(root_dir, model_path, model_name))
+            trained_model_path = Path(os.path.join(root_dir,trained_model_path))
+            create_directories([trained_model_path])
+            tokenizer_name = self.config[DATA_PREPRATION_KEY][TOKENIZER_NAME_KEY]
+            tokenizer_path = Path(os.path.join(self.config[DATA_PREPRATION_KEY][ROOT_DIR_KEY], self.config[DATA_PREPRATION_KEY][TOKENIZER_PATH_KEY]))
+            root_dir = self.config[DATA_PREPRATION_KEY][ROOT_DIR_KEY]
+            transformed_data_dir = self.config[DATA_PREPRATION_KEY][TRANSFORMED_DATA_DIR_KEY]
+            transformed_data_dir = Path(os.path.join(root_dir, transformed_data_dir))
+
+            no_epochs = self.params[TRAININGARGUMENTS_KEY][NUM_TRAIN_EPOCHS_KEY]
+
+            model_training_config = ModelTrainingConfig(model_name=model_name, model_path=model_full_path,
+                                                        tokenizer_name=tokenizer_name, tokenizer_path=tokenizer_path,
+                                                        transformed_training_data_dir=transformed_data_dir,
+                                                        trained_model_path=trained_model_path,
+                                                        no_epochs=no_epochs)
 
 
-    ob = Configuration()
-    # c = ob.get_data_ingestion_config()
-    # c = ob.get_data_validation_config()
-    c = ob.get_data_prepration_config()
-    print(c)
+            return model_training_config
+        except Exception as e:
+            self.my_logger.write_exception(e)
+            raise Exception(e, sys.exc_info())
+
+    if __name__ == '__main__':
+
+        ob = Configuration()
+        # c = ob.get_data_ingestion_config()
+        # c = ob.get_data_validation_config()
+        # c = ob.get_data_prepration_config()
+        c = ob.get_model_trainer_config()
+        print(c)

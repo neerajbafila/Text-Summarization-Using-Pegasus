@@ -135,3 +135,7 @@ researchEnv/*
 artifacts/transformed_data/*
 artifacts/tokenizer/models--google--pegasus-cnn_dailymail/*
 data/unzip_data/
+mlruns/*
+artifacts/Raw_model/*
+artifacts/Trained_model/*
+artifacts/tokenizer/*

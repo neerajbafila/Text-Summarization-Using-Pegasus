@@ -8,6 +8,11 @@ paths:
   zip_data_file_name: data.zip
   unzip_data_path: unzip_data
   data_set_name: samsum_dataset
+  model_name: google/pegasus-cnn_dailymail
+  model_path: Raw_model
+  trained_model_path: Trained_model
+  
+
 
 data_validation_config:
   data_split_name:
@@ -26,5 +31,8 @@ data_validation_config:
 data_prepration:
   root_dir: artifacts
   transformed_data_dir: transformed_data 
-  tokenizer_name: "google/pegasus-cnn_dailymail"
+  tokenizer_name: google/pegasus-cnn_dailymail
   tokenizer_path: tokenizer
+
+
+

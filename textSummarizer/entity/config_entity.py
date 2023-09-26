@@ -22,3 +22,10 @@ class DataPreprationConfig:
     transformed_data_dir: Path
     tokenizer_name: Path
     tokenizer_path: Path
+
+ModelTrainingConfig = namedtuple("ModelTrainingConfig", ["model_name", "model_path", 
+                                                         "tokenizer_name", "tokenizer_path",
+                                                         "transformed_training_data_dir",
+                                                         "trained_model_path",
+                                                         "no_epochs"
+                                                         ])
