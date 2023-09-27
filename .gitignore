@@ -139,3 +139,4 @@ mlruns/*
 artifacts/Raw_model/*
 artifacts/Trained_model/*
 artifacts/tokenizer/*
+artifacts/eval_score/

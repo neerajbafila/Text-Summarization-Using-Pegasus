@@ -14,6 +14,9 @@ DATASET_NAME_KEY = "data_set_name"
 MODEL_NAME_KEY = "model_name"
 MODEL_PATH_KEY = "model_path"
 TRAINED_MODEL_PATH_KEY = "trained_model_path"
+EVAL_MATRIX_PATH_KEY = "eval_matrix_path"
+EVAL_MATRIX_NAME_KEY = "eval_matrix_name"
+
 
 
 DATA_VALIDATION_CONFIG_KEY = "data_validation_config"
@@ -30,3 +33,5 @@ TOKENIZER_PATH_KEY = "tokenizer_path"
 TRAININGARGUMENTS_KEY = "TrainingArguments"
 NUM_TRAIN_EPOCHS_KEY = "num_train_epochs"
 
+MODEL_EVALUATION_KEY = "model_evaluation"
+MATRIX_NAMES_KEY = "matrix_name"

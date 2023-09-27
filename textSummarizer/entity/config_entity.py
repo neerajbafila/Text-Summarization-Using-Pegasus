@@ -29,3 +29,14 @@ ModelTrainingConfig = namedtuple("ModelTrainingConfig", ["model_name", "model_pa
                                                          "trained_model_path",
                                                          "no_epochs"
                                                          ])
+
+@dataclass(frozen=True)
+class ModelEvalConfig:
+    matrix_name: str
+    eval_data_path: Path
+    model_name: str
+    model_path: Path
+    tokenizer_name: str
+    tokenizer_path: Path
+    # eval_matrix_name: str
+    eval_matrix_path: Path

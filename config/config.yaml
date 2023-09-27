@@ -11,6 +11,8 @@ paths:
   model_name: google/pegasus-cnn_dailymail
   model_path: Raw_model
   trained_model_path: Trained_model
+  eval_matrix_path: eval_score
+  eval_matrix_name: score.csv
   
 
 
@@ -35,4 +37,7 @@ data_prepration:
   tokenizer_path: tokenizer
 
 
+model_evaluation:
+  matrix_name: rouge
+   
 
