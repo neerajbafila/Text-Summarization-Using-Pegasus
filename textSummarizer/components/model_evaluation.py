@@ -2,8 +2,6 @@ from textSummarizer import Logger
 from textSummarizer.constants import *
 from ensure import ensure_annotations
 from textSummarizer import ModelEvalConfig, Configuration
-from typing import List
-from pathlib import Path
 import sys
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -76,8 +74,7 @@ class Model_evaluation:
             matrix_name = self.model_eval_config.matrix_name
             matrix = evaluate.load(matrix_name)
             # (self, dataset, tokenizer, model, matrix, batch_size=3, col_for_text="dialogue",col_for_target="summary"):
-            score = self.calculate_metric(dataset=eval_dataset['train'][:2], tokenizer=tokenizer, model=model, matrix=matrix, batch_size=8)
-            print(f'rouge is {score}')
+            score = self.calculate_metric(dataset=eval_dataset['train'][:1], tokenizer=tokenizer, model=model, matrix=matrix, batch_size=8)
             rouge_df = pd.DataFrame(score, index=['score'])
             rouge_df.to_csv(self.model_eval_config.eval_matrix_path)
             self.my_logger.write_log(f"evaluation matrix has stored at {self.model_eval_config.eval_matrix_path}")

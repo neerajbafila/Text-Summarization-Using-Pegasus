@@ -91,11 +91,11 @@ class Data_validation:
             self.my_logger.write_exception(e)
             raise Exception(e, sys.exc_info())
 
-if __name__ == "__main__":
-    c = Configuration()
-    ob = Data_validation(c.get_data_validation_config())
-    c = ob.drive_check()
-    print(c)
+# if __name__ == "__main__":
+#     c = Configuration()
+#     ob = Data_validation(c.get_data_validation_config())
+#     c = ob.drive_check()
+#     print(c)
 
 
 
