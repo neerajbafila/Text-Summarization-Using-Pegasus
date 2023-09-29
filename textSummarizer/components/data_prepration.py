@@ -58,6 +58,7 @@ class Data_prepration:
             self.my_logger.write_exception(e)
             raise Exception(e, sys.exc_info())
 
-ob_c = Configuration()
-ob = Data_prepration(ob_c.get_data_prepration_config())
-ob.convert_data()
+if __name__ == "__main__":
+    ob_c = Configuration()
+    ob = Data_prepration(ob_c.get_data_prepration_config())
+    ob.convert_data()
