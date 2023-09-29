@@ -1,6 +1,6 @@
 from python:3.10-slim-buster
 
-RUN apt update -y && apt install -awscli -y
+RUN sudo apt update -y && sudo apt install -awscli -y
 WORKDIR /app
 
 copy . /app
